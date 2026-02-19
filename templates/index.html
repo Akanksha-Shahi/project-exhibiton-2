@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Diabetes Health Predictor</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>🩺 Diabetes Risk Prediction</h1>
+    <p>Check if you need to visit a doctor within 30 days</p>
+
+    <form action="/predict" method="POST">
+
+    <input type="number" step="any" name="number_inpatient" placeholder="Number of Inpatient Visits" required>
+
+    <input type="number" step="any" name="diag_1" placeholder="Primary Diagnosis (diag_1)" required>
+
+    <input type="number" step="any" name="diag_2" placeholder="Secondary Diagnosis (diag_2)" required>
+
+    <input type="number" step="any" name="num_lab_procedures" placeholder="Number of Lab Procedures" required>
+
+    <input type="number" step="any" name="diag_3" placeholder="Additional Diagnosis (diag_3)" required>
+
+    <input type="number" step="any" name="num_medications" placeholder="Number of Medications" required>
+
+    <input type="number" step="any" name="discharge_disposition_id" placeholder="Discharge Disposition ID" required>
+
+    <input type="number" step="any" name="time_in_hospital" placeholder="Time in Hospital (days)" required>
+
+    <input type="number" step="any" name="age" placeholder="Age" required>
+
+    <input type="number" step="any" name="number_diagnoses" placeholder="Number of Diagnoses" required>
+
+    <input type="number" step="any" name="number_emergency" placeholder="Number of Emergency Visits" required>
+
+    <input type="number" step="any" name="num_procedures" placeholder="Number of Procedures" required>
+
+    <input type="number" step="any" name="admission_type_id" placeholder="Admission Type ID" required>
+
+    <input type="number" step="any" name="insulin" placeholder="Insulin Level / Encoded Value" required>
+
+    <input type="number" step="any" name="number_outpatient" placeholder="Number of Outpatient Visits" required>
+
+    <button type="submit">Predict Risk</button>
+
+</form>
+
+{% if prediction_text %}
+    <h2>{{ prediction_text }}</h2>
+{% endif %}
+
+</body>
+</html>
